@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Card Grid</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .image-container {
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            position: relative;
+            background-color: #eaeaea;
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            color: black;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-container {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: rgb(42, 190, 12);
+        }
+
+        .brand {
+            font-size: 0.75rem;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgb(145, 236, 26);
+        }
+
+        .title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background-color: rgb(82, 0, 175);
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        .current-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        .original-price {
+            font-size: 0.8rem;
+            color: #86868b;
+            text-decoration: line-through;
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 400px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <span class="badge">Sale</span>
+            <div class="image-container">
+                <!-- Replace with your actual product image URL -->
+                <img src="data:image/jpeg;base64,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" alt="Product Image">
+            </div>
+            <div class="info-container">
+                <span class="brand">Brand Name</span>
+                <span class="title">Classic Canvas Sneakers</span>
+                <div class="price-container">
+                    <span class="current-price">$59.99</span>
+                    <span class="original-price">$89.99</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <span class="badge">Sale</span>
+            <div class="image-container">
+                <!-- Replace with your actual product image URL -->
+                <img src="data:image/jpeg;base64,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" alt="Product Image">
+            </div>
+            <div class="info-container">
+                <span class="brand">Brand Name</span>
+                <span class="title">Minimalist White Watch</span>
+                <div class="price-container">
+                    <span class="current-price">$120.00</span>
+                    <span class="original-price">$180.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
